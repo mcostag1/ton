@@ -1,0 +1,186 @@
+Config:
+  hfst:
+    App: hfst-lookup
+    Gen: ../ton.autogen.hfst
+    Morph: ../ton.automorf.hfst
+Tests:
+  Adjectives: {}
+  Affixes:
+    efu<n><az>: efua
+    fai<v><postadv>: faingataʻa
+    kai<v><postadv>: kaingataʻa
+    lango<v><az>: langoa
+    mamate<n><az>: mamatea
+    namu<n><az>: namua
+    ongoongo<n><az>: ongoongoa
+    ʻalu<v><postadv>: ʻalungataʻa
+  Articles:
+    he<adj><def>: he
+    e<adj><def>: e
+    ha<adj><ind>: ha
+    he<adj><sdef>: he
+    e<adj><sdef>: e
+    pālangi<n><adj><def>: e pālangi
+    pālangi<n><adj><ind>: ha pālangi
+  Cardinal Pronouns:
+    au<prn><postd><p1><exl><sg>: au
+    ia<prn><postd><p3><sg>: ia
+    ke<prn><prepd><p2><sg>: ke
+    kimaua<prn><postd><p1><exl><du>: kimaua
+    kimautolu<prn><postd><p1><exl><pl>: kimautolu
+    kimoua<prn><postd><p2><du>: kimoua
+    kimoutolu<prn><postd><p2><pl>: kimoutolu
+    kinaua<prn><postd><p3><du>: kinaua
+    kinautolu<prn><postd><p3><pl>: kinautolu
+    kita<prn><postd><p1><incl><sg>: kita
+    kitaua<prn><postd><p1><incl><du>: kitaua
+    kitautolu<prn><postd><p1><incl><pl>: kitautolu
+    koe<prn><postd><p2><sg>: koe
+    ku<prn><prepd><p1><fti><exl><pl>: ku
+    ma<prn><prepd><p1><exl><du>: ma
+    mau<prn><prepd><p1><exl><pl>: mau
+    mo<prn><prepd><p2><du>: mo
+    mou<prn><prepd><p2><pl>: mou
+    na<prn><prepd><p3><du>: na
+    nau<prn><prepd><p3><pl>: nau
+    ne<prn><prepd><p3><sg>: ne
+    ou<prn><prepd><p1><pres><exl><sg>: ou
+    ta<prn><prepd><p1><incl><du>: ta
+    te<prn><prepd><p1><incl><sg>: te
+    u<prn><prepd><p1><past><exl><du>: u
+    ou<prn><prepd><p1><pres><exl><sg>: ou
+  Imperatives:
+    aʻhu<v><imp>: aʻhu
+    mohe<v><imp>: mohe
+    ʻalu<v><imp>: ʻalu
+
+  Irregular Noun Pluralization:
+    fefine<n><du>: fāfine
+    mokopuna<n><du>: makapuna
+    tehina<n><du>: fototehina
+    tuofefine<n><du>: tuofāfine
+  Nouns:
+    efu<n><sg>: efu
+    faifekau<n><sg>: faifekau
+    fale<n><sg>: fale
+    fili<n><sg>: fili
+    hele<n><sg>: hele
+    hoosi<n><sg>: hoosi
+    kaiako<n><sg>: kaiako
+    luo<n><sg>: luo
+    mamate<n><sg>: mamate
+    maŋa<n><sg>: maŋa
+    namu<n><sg>: namu
+    ongoongo<n><sg>: ongoongo
+    pea<n><sg>: pea
+    puaka<n><sg>: puaka
+    tangata<n><sg>: tangata
+    tohi<n><sg>: tohi
+    toko<n><sg>: toko
+  Partial Reduplication:
+    kotoa<adj><emph>: katokatoa
+    momoko<adj><emph>: mokomoko
+    māfana<adj><emph>: mamāfana
+    pakiua<v><emph>: pakipaki
+  Parts of Speech: {}
+  Plural Noun Markers:
+    fanga<cl><pl>: fanga
+    kau<cl><pl>: kau
+    ngaahi<cl><pl>: ngaahi
+    ongo<cl><du>: ongo
+    ʻu<cl><pl>: ʻu
+  Possessive Pronouns:
+    haku<prn><poss><ind><p1><exl><sg><incl><ordinary>: haku
+    siʻaku<prn><poss><ind><p1><exl><sg><emotional>: siʻaku
+    hama<prn><poss><ind><p1><exl><du><ordinary>: hama
+    siʻama<prn><poss><ind><p1><exl><du><emotional>: siʻama
+    hamau<prn><poss><ind><p1><exl><pl><ordinary>: hamau
+    siʻamau<prn><poss><ind><p1><exl><pl><emotional>: siʻamau
+
+    hato<prn><poss><ind><p1><incl><sg><ordinary>: hato
+    siʻato<prn><poss><ind><p1><incl><sg><emotional>: siʻato
+    hata<prn><poss><ind><p1><<incl><du><ordinary>: hata
+    siʻata<prn><poss><ind><p1><incl><du><emotional>: siʻata
+    hatau<prn><poss><ind><p1><incl><pl><ordinary>: hatau
+    siʻatau<prn><poss><ind><p1><incl><pl><emotional>: siʻatau
+
+    hao<prn><poss><ind><p2><sg><ordinary>: hao
+    siʻao<prn><poss><ind><p2><sg><emotional>: siʻao
+    hamo<prn><poss><ind><p2><du><ordinary>: hamo
+    siʻamo<prn><poss><ind><p2><du><emotional>: siʻamo
+    hamou<prn><poss><ind><p2><pl><ordinary>: hamou
+    siʻamou<prn><poss><ind><p2><pl><emotional>: siʻamou
+
+
+    hano<prn><poss><ind><p3><sg><ordinary>: hano
+    siʻano<prn><poss><ind><p3><sg><emotional>: siʻano
+    hana<prn><poss><ind><p3><du><ordinary>: hana
+    siʻana<prn><poss><ind><p3><du><emotional>: siʻana
+    hanau<prn><poss><ind><p3><pl><ordinary>: hanau
+    siʻanau<prn><poss><ind><p3><pl><emotional>: siʻanau
+
+    hoku<prn><poss><def><p1><exl><sg><ordinary>: hoku
+    siʻoku<prn><poss><def><p1><exl><sg><emotional>: siʻoku
+    homa<prn><poss><def><p1><exl><du><ordinary>: homa
+    siʻoma<prn><poss><def><p1><exl><du><emotional>: siʻoma
+    homau<prn><poss><def><p1><exl><pl><ordinary>: homau
+    siʻomau<prn><poss><def><p1><exl><pl><emotional>: siʻomau
+
+    hoto<prn><poss><def><p1><incl><sg><ordinary>: hoto
+    siʻoto<prn><poss><def><p1><incl><sg><emotional>: siʻoto
+    hota<prn><poss><def><p1><incl><du><ordinary>: hota
+    siʻota<prn><poss><def><p1><incl><du><emotional>: siʻota
+    hotau<prn><poss><def><p1><incl><pl><ordinary>: hotau
+    siʻotau<prn><poss><def><p1><incl><pl><emotional>: siʻotau
+
+    ho<prn><poss><def><p2><sg><ordinary>: ho
+    siʻo<prn><poss><def><p2><sg><emotional>: siʻo
+    homo<prn><poss><def><p2><du><ordinary>: homo
+    siʻomo<prn><poss><def><p2><du><emotional>: siʻomo
+    homou<prn><poss><def><p2><pl><ordinary>: homou
+    siʻomou<prn><poss><def><p2><pl><emotional>: siʻomou
+
+    hono<prn><poss><def><p3><sg><ordinary>: hono
+    siʻano<prn><poss><def><p3><sg><emotional>: siʻano
+    hona<prn><poss><def><p3><du><ordinary>: hona
+    siʻona<prn><poss><def><p3><du><emotional>: siʻona
+    honau<prn><poss><def><p3><pl><ordinary>: honau
+    siʻonau<prn><poss><def><p3><pl><emotional>: siʻonau
+
+    hoʻoku<prn><poss><p1><exl><sg><emphatic>: hoʻoku
+    hoʻomaua<prn><poss><p1><exl><du><emphatic>: hoʻomaua
+    hoʻomautolu<prn><poss><p1><exl><pl><emphatic>: hoʻomautolu
+
+    hoʻota<prn><poss><p1><incl><sg><emphatic>: hoʻota
+    hoʻotaua<prn><poss><p1><incl><du><emphatic>: hoʻotaua
+    hoʻotautolu<prn><poss><p1><incl><pl><emphatic>: hoʻotautolu
+
+    hoʻona<prn><poss><p2><sg><emphatic>: hoʻona
+    hoʻonauau<prn><poss><p2><du><emphatic>: hoʻonauau
+    hoʻonautolu<prn><poss><p2><pl><emphatic>: hoʻonautolu
+
+    hoʻou<prn><poss><p3><sg><emphatic>: hoʻou
+    hoʻomoua<prn><poss><p3><du><emphatic>: hoʻomoua
+    hoʻomoutolu<prn><poss><p3><pl><emphatic>: hoʻomoutolu
+
+  Pronouns: {}
+  Reduplication:
+    kehe<adj><emph>: kehekehe
+    māfana<adj><emph>: mamāfana
+  Tense:
+    ako<v>: ako
+    aʻhu<v>: aʻhu
+    inu<v>: inu
+    kai<v>: kai
+    mohe<v>: mohe
+    ʻalu<v>: ʻalu
+    ʻoku<aux><v><present>: ʻoku
+    te<aux><v><fti>: te
+    naʻa<aux><v><past>: naʻa
+    
+  Time Modifiers:
+    kotoa<adj>: kotoa
+    ʻanai<adj>: ʻanai
+    ʻapo<adj>: ʻapo
+    ʻapongipongi<adj>: ʻapongipongi
+  Verbs: {}

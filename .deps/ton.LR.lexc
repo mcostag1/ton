@@ -1,0 +1,531 @@
+! Morphological Transducer for Tongan
+
+Multichar_Symbols
+
+! Part of speech categories
+%<n%>   ! Noun
+%<v%>   ! Verb
+%<adj%> ! Adjective
+%<adv%> ! Adverb
+%<prn%> ! Pronoun
+
+! Adjective Morphology
+%<def%> ! Definite
+%<ind%> ! Indefinite
+%<sdef%> ! Indefinite
+
+! Number morphology
+%<pl%>  ! Plural
+%<sg%>  ! Singular
+%<du%>  ! Dual
+
+%<det%>  ! Determiner
+! Person Morphology
+%<p1%>  ! 1st Person
+%<p2%>  ! 2nd Person
+%<p3%>  ! 3rd Person
+
+! Possession Morphology
+%<px1sg%> ! 1st Person singular possesive
+%<px2sg%> ! 2nd Person singular possesive
+%<px3sg%> ! 3rd Person singular possesive
+%<px1pl%> ! 1st Person plural possesive
+%<px2pl%> ! 2nd Person plural possesive
+%<px3pl%> ! 3rd Person plural possesive
+
+%<emphatic%> ! Emotional Possesion
+%<emotional%> ! Emotional Possesion
+%<ordinary%> ! Ordinary Possesion
+
+! Verb Tenses
+%<past%> ! Past
+%<pres%> ! Present
+%<fti%>  ! Future Indicative
+%<imp%>  ! Imperative
+%<aux%>  ! Auxiliry verb
+%<cl%>   ! Classifier
+%<pr%>   ! Preposition
+%<neg%>   ! Negation
+%<vaux%>   ! Aux verb
+
+
+! Other symbols
+%>      ! Morpheme boundary
+%{'%}   ! Glottal stop consonant
+%<emph%> ! emphasizing
+%<fredu%> ! Full reduplication
+%<predu%> ! Partial reduplication
+%<az%> ! Adjectivizer
+%<excl%> ! Exclusive
+%<incl%> ! Inclusive
+%<ind%> ! Inclusive
+%<prepd%> ! Preposed
+%<postd%> ! Postposed
+%<sent%> ! Sentence
+%<poss%> ! Sentence
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                       M O R P H O T A C T I C S                         !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON Root
+
+NounRoot ;
+AdjRoot ;
+VerbRoot ;
+CardPrnRoot ;
+PossPrnRoot ;
+PluralClassifiers ;
+Punctuation ;
+AdverbRoot ;
+PrepRoot ;
+
+LEXICON RegNounInfl
+
+%<n%>: # ;
+%<n%>%<sg%>: # ;
+%<n%>%<du%>: # ;
+%<n%>%<pl%>: # ;
+
+LEXICON AdvInfl
+%<adv%>: # ;
+
+
+
+LEXICON AdjInfl
+
+%<adj%>: # ;
+
+
+LEXICON Neg
+%<neg%>: # ;
+
+LEXICON AdjEmph
+
+%<adj%>%<emph%>: # ;
+
+LEXICON VerbInfl
+
+%<v%> : # ;
+
+LEXICON CardPrnInfl
+
+
+%<prn%>%<prepd%>%<p1%>%<pres%>%<excl%>%<sg%>: ou # ;
+%<prn%>%<prepd%>%<p1%>%<past%>%<excl%>%<du%>:u # ;
+%<prn%>%<prepd%>%<p1%>%<fti%>%<excl%>%<pl%>: ku # ;
+%<prn%>%<prepd%>%<p1%>%<excl%>%<du%>: ma # ;
+%<prn%>%<prepd%>%<p1%>%<excl%>%<pl%>: mau # ;
+%<prn%>%<prepd%>%<p1%>%<incl%>%<sg%>: te # ;
+%<prn%>%<prepd%>%<p1%>%<incl%>%<du%>: ta # ;
+%<prn%>%<prepd%>%<p1%>%<incl%>%<pl%>: tau # ;
+%<prn%>%<prepd%>%<p2%>%<sg%>: ke # ;
+%<prn%>%<prepd%>%<p2%>%<du%>: mo # ;
+%<prn%>%<prepd%>%<p2%>%<pl%>: mou # ;
+%<prn%>%<prepd%>%<p3%>%<sg%>: ne # ;
+%<prn%>%<prepd%>%<p3%>%<du%>: na # ;
+%<prn%>%<prepd%>%<p3%>%<pl%>: nau # ;
+
+%<prn%>%<postd%>%<pl%>%<excl%>%<sg%>: au # ;
+%<prn%>%<postd%>%<p1%>%<excl%>%<du%>: kimaua # ;
+%<prn%>%<postd%>%<p1%>%<excl%>%<pl%>: kimautolu # ;
+%<prn%>%<postd%>%<p1%>%<incl%>%<sg%>: kita # ;
+%<prn%>%<postd%>%<p1%>%<incl%>%<du%>: kitaua # ;
+%<prn%>%<postd%>%<p1%>%<incl%>%<pl%>: kitautolu # ;
+%<prn%>%<postd%>%<p2%>%<sg%>: koe # ;
+%<prn%>%<postd%>%<p2%>%<du%>: kimoua # ;
+%<prn%>%<postd%>%<p2%>%<pl%>: kimoutolu # ;
+%<prn%>%<postd%>%<p3%>%<sg%>: ia # ;
+%<prn%>%<postd%>%<p3%>%<du%>: kinaua # ;
+%<prn%>%<postd%>%<p3%>%<pl%>: kinautolu # ;
+
+LEXICON OtherPrn
+%<prn%>: hai # ;
+
+LEXICON PrepInfl
+
+%<pr%>: # ;
+
+LEXICON Det
+
+%<det%>: # ;
+
+
+LEXICON PossPrnIrr
+%<prn%>%<poss%>%<emotional%>: # ;
+%<prn%>%<poss%>%<ordinary%>: # ;
+! %<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<sg%>%<emotional%>: # ;
+
+LEXICON PossPrnInfl
+
+! Indefinite possessive pronouns
+
+%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<sg%>%<ordinary%>: haku # ;
+
+%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<du%>%<ordinary%>: hama # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<du%>%<emotional%>: siʻama # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<pl%>%<ordinary%>: hamau # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<pl%>%<emotional%>: siʻamau # ;
+
+%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<sg%>%<ordinary%>: hato # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<sg%>%<emotional%>: siʻato # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<du%>%<ordinary%>: hata # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<du%>%<emotional%>: siʻata # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<pl%>%<ordinary%>: hatau # ;
+%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<pl%>%<emotional%>: siʻatau # ;
+
+%<prn%>%<poss%>%<ind%>%<p2%>%<sg%>%<ordinary%>: hao # ;
+%<prn%>%<poss%>%<ind%>%<p2%>%<sg%>%<emotional%>: siʻao # ;
+%<prn%>%<poss%>%<ind%>%<p2%>%<du%>%<ordinary%>: hamo # ;
+%<prn%>%<poss%>%<ind%>%<p2%>%<du%>%<emotional%>: siʻamo # ;
+%<prn%>%<poss%>%<ind%>%<p2%>%<pl%>%<ordinary%>: hamou # ;
+%<prn%>%<poss%>%<ind%>%<p2%>%<pl%>%<emotional%>: siʻamou # ;
+
+
+%<prn%>%<poss%>%<ind%>%<p3%>%<sg%>%<ordinary%>: hano # ;
+%<prn%>%<poss%>%<ind%>%<p3%>%<sg%>%<emotional%>: siʻano # ;
+%<prn%>%<poss%>%<ind%>%<p3%>%<du%>%<ordinary%>: hana # ;
+%<prn%>%<poss%>%<ind%>%<p3%>%<du%>%<emotional%>: siʻana # ;
+%<prn%>%<poss%>%<ind%>%<p3%>%<pl%>%<ordinary%>: hanau # ;
+%<prn%>%<poss%>%<ind%>%<p3%>%<pl%>%<emotional%>: siʻanau # ;
+
+! Definite possessive pronouns
+
+%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<sg%>%<ordinary%>: hoku # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<sg%>%<emotional%>: siʻoku # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<du%>%<ordinary%>: homa # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<du%>%<emotional%>: siʻoma # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<pl%>%<ordinary%>: homau # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<pl%>%<emotional%>: siʻomau # ;
+
+%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<sg%>%<ordinary%>: hoto # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<sg%>%<emotional%>: siʻoto # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<du%>%<ordinary%>: hota # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<du%>%<emotional%>: siʻota # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<pl%>%<ordinary%>: hotau # ;
+%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<pl%>%<emotional%>: siʻotau # ;
+
+%<prn%>%<poss%>%<def%>%<p2%>%<sg%>%<ordinary%>: ho # ;
+%<prn%>%<poss%>%<def%>%<p2%>%<sg%>%<emotional%>: siʻo # ;
+%<prn%>%<poss%>%<def%>%<p2%>%<du%>%<ordinary%>: homo # ;
+%<prn%>%<poss%>%<def%>%<p2%>%<du%>%<emotional%>: siʻomo # ;
+%<prn%>%<poss%>%<def%>%<p2%>%<pl%>%<ordinary%>: homou # ;
+%<prn%>%<poss%>%<def%>%<p2%>%<pl%>%<emotional%>: siʻomou # ;
+
+%<prn%>%<poss%>%<def%>%<p3%>%<sg%>%<ordinary%>: hono # ;
+%<prn%>%<poss%>%<def%>%<p3%>%<sg%>%<emotional%>: siʻano # ;
+%<prn%>%<poss%>%<def%>%<p3%>%<du%>%<ordinary%>: hona # ;
+%<prn%>%<poss%>%<def%>%<p3%>%<du%>%<emotional%>: siʻona # ;
+%<prn%>%<poss%>%<def%>%<p3%>%<pl%>%<ordinary%>: honau # ;
+%<prn%>%<poss%>%<def%>%<p3%>%<pl%>%<emotional%>: siʻonau # ;
+
+%<prn%>%<poss%>%<p1%>%<excl%>%<sg%>%<emphatic%>: hoʻoku # ;
+%<prn%>%<poss%>%<p1%>%<excl%>%<du%>%<emphatic%>: hoʻomaua # ;
+%<prn%>%<poss%>%<p1%>%<excl%>%<pl%>%<emphatic%>: hoʻomautolu # ;
+
+%<prn%>%<poss%>%<p1%>%<incl%>%<sg%>%<emphatic%>: hoʻota # ;
+%<prn%>%<poss%>%<p1%>%<incl%>%<du%>%<emphatic%>: hoʻotaua # ;
+%<prn%>%<poss%>%<p1%>%<incl%>%<pl%>%<emphatic%>: hoʻotautolu # ;
+
+%<prn%>%<poss%>%<p2%>%<sg%>%<emphatic%>: hoʻona # ;
+%<prn%>%<poss%>%<p2%>%<du%>%<emphatic%>: hoʻonauau # ;
+%<prn%>%<poss%>%<p2%>%<pl%>%<emphatic%>: hoʻonautolu # ;
+
+%<prn%>%<poss%>%<p3%>%<sg%>%<emphatic%>: hoʻou # ;
+%<prn%>%<poss%>%<p3%>%<du%>%<emphatic%>: hoʻomoua # ;
+%<prn%>%<poss%>%<p3%>%<pl%>%<emphatic%>: hoʻomoutolu # ;
+
+
+LEXICON PluralMarkersInfl
+
+%<cl%>%<pl%>: # ;
+
+LEXICON DualMarkersInfl
+%<cl%>%<du%>: # ;
+
+
+LEXICON AuxVerbPast
+%<vaux%>%<past%>: # ;
+
+LEXICON AuxVerbPres
+%<vaux%>%<pres%>: # ;
+
+LEXICON AuxVerbFut
+%<vaux%>%<fti%>: # ;
+
+LEXICON VerbRegImp
+%<v%>%<imp%>: # ;
+
+LEXICON RegArticle
+
+%<def%>: # ;
+%<ind%>: ha # ;
+
+LEXICON SDefArticle
+%<sdef%>: # ;
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                          L E X I C O N                                  !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON Punctuation
+
+.%<sent%>:. # ;
+..%<sent%>:.. # ;
+...%<sent%>:... # ;
+%;%<sent%>:%; # ;
+%:%<sent%>:%: # ;
+%!%<sent%>:%! # ;
+%-%<guio%>:%- # ;
+%—%<guio%>:%— # ;
+,%<cm%>:, # ;
+%?%<sent%>:%? # ;
+%'%<apos%>:%' # ;
+%"%<sent%>:%" # ;
+%«%<lquot%>:%« # ;
+%»%<rquot%>:%» # ;
+%”%<rquot%>:%” # ;
+%“%<lquot%>:%“ # ;
+%(%<lpar%>:%( # ;
+%]%<rpar%>:%] # ;
+%[%<lpar%>:%[ # ;
+%)%<rpar%>:%) # ;
+\%<sent%>:\ # ;
+/%<sent%>:/ # ;
+
+
+LEXICON AdverbRoot
+
+pē:pē AdvInfl ; ! only
+fēfē:fēfē ; ! how
+
+LEXICON PrepRoot
+
+hake:hake PrepInfl ; ! upwards
+ʻi:ʻi PrepInfl ; ! at
+ko:ko PrepInfl ; ! indicating identity
+
+LEXICON NounRoot
+
+foʻiʻakau:foʻiʻakau RegNounInfl ; ! fame
+ongoongo:ongoongo RegNounInfl ; ! fame
+namu:namu RegNounInfl ; ! mosquito
+mamate:mamate RegNounInfl ; ! paralysis
+efu:efu RegNounInfl ; ! dust
+kaiako:kaiako RegNounInfl ; ! teacher
+fili:fili RegNounInfl ; ! candidate
+fale:fale RegNounInfl ; ! house
+hele:hele RegNounInfl ; ! knife
+faifekau:faifekau RegNounInfl ; ! minister
+tohi:tohi RegNounInfl ; ! book
+maŋa:maŋa RegNounInfl ; ! fork
+puaka:puaka RegNounInfl ; ! pig
+hoosi:hoosi RegNounInfl ; ! horse
+toko:toko RegNounInfl ; ! cow
+tangata:tangata RegNounInfl ; ! man
+vaka:vaka RegNounInfl ; ! boat
+luo:luo RegNounInfl ; ! hole
+kofu:kofu RegNounInfl ; ! garment
+pea:pea RegNounInfl ; ! bear, pear, or and
+ika:ika RegNounInfl ; ! fish
+kuli:kuli RegNounInfl ; ! dog
+ngutu:ngutu RegNounInfl ; ! mouth
+mata:mata RegNounInfl ; ! eye
+tamasiʻi:tamasiʻi RegNounInfl ; ! child
+anga:anga RegNounInfl ; ! shark
+poto:poto RegNounInfl ; ! frog
+anga:anga RegNounInfl ; ! shark
+ʻaho:ʻaho RegNounInfl ; ! day
+moana:moana RegNounInfl ; ! sea/ocean
+vai:vai RegNounInfl ; ! sea/ocean
+kakalu:kakalu RegNounInfl ; ! sea/ocean
+fehuʻi:fehuʻi RegNounInfl ; ! question
+valevale:valevale RegNounInfl ; ! question
+LEXICON AdjRoot
+
+ʻanai:ʻanai AdjInfl ; ! shortly
+ʻapo:ʻapo AdjInfl ; ! tonight
+ʻapongipongi:ʻapongipongi AdjInfl ; ! tomorrow
+momoko:momoko AdjInfl ; ! cold
+māfana:māfana AdjInfl ; ! warm
+kotoa:kotoa AdjInfl ; ! all
+kehe:kehe AdjInfl ; ! different
+fiefia:fiefia AdjInfl ; ! happy
+lata:lata AdjInfl ; ! happy
+puke:puke AdjInfl ; ! sick
+fiefia:fiefia AdjInfl ; ! happy
+ʻuliʻuli:ʻuliʻuli AdjInfl ; ! black
+fiefia:fiefia AdjInfl ; ! happy
+ilifia:ilifia AdjInfl ; ! afraid
+vela:vela AdjInfl ; ! hot/warm
+ʻaupito:ʻaupito AdjInfl ; ! very
+vaivai:vaivai AdjInfl ; ! old/weak
+fuʻu:fuʻu AdjInfl ; ! big
+sai:sai AdjInfl ; ! good/fine
+ʻikai:ʻikai Neg ; ! not(neg)
+ʻa:ʻa AdjInfl ; ! awake
+mata-tangi:mata-tangi AdjInfl ; ! tearful
+ni:ni Det ; ! 
+
+
+
+kehe:kehekehe AdjEmph ; ! very different
+māfana:mamāfana AdjEmph ; ! luke warm
+momoko:mokomoko AdjEmph ; ! cool
+
+he:he SDefArticle ; ! a
+e:e SDefArticle ; ! a
+
+he:he RegArticle ; ! a
+e:e RegArticle ; ! a
+ha: RegArticle ; ! a
+
+
+LEXICON VerbRoot
+
+kai:kai VerbInfl ; ! to eat
+inu:inu VerbInfl ; ! to drink
+ako:ako VerbInfl ; ! to study
+ʻalu:ʻalu VerbInfl ; ! to get/go
+mohe:mohe VerbInfl ; ! to sleep
+aʻhu:aʻhu VerbInfl ; ! to come
+moloki:moloki VerbInfl ; ! to step on
+kakau:kakau VerbInfl ; ! to swim
+moloki:moloki VerbInfl ; ! to step on
+tamateʻi:tamateʻi VerbInfl ; ! to kill
+ōmai:ōmai VerbInfl ; ! to come
+po:po VerbInfl ; ! to catch
+tutu:tutu VerbInfl ; ! to burn
+ʻuha:ʻuha VerbInfl ; ! to rain
+tangi:tangi VerbInfl ; ! to eat
+angi:angi VerbInfl ; ! to blow
+
+
+te:te AuxVerbFut ; ! future tense marker
+naʻa:naʻa AuxVerbPast ; ! past tense marker
+ʻoku:ʻoku AuxVerbPres ; ! present tense marker
+
+mohe:mohe VerbRegImp ; ! sleep!
+aʻhu:aʻhu VerbRegImp ; !
+ʻalu:ʻalu VerbRegImp ; !
+kai:kai VerbRegImp ; ! eat!
+
+
+LEXICON CardPrnRoot
+
+hai: OtherPrn ; !
+ou: CardPrnInfl ; ! I
+u: CardPrnInfl ; ! I
+ku: CardPrnInfl ; ! I
+ma: CardPrnInfl ; ! we
+mau: CardPrnInfl ; ! us
+te: CardPrnInfl ; ! one
+ta: CardPrnInfl ; ! we
+tau: CardPrnInfl ; ! us
+ke: CardPrnInfl ; ! you
+mo: CardPrnInfl ; ! you both
+mou: CardPrnInfl ; ! you all (pl)
+ne: CardPrnInfl ; ! he/she
+na: CardPrnInfl ; ! them (dual)
+nau: CardPrnInfl ; ! them (pl)
+
+au: CardPrnInfl ; ! I
+kimaua: CardPrnInfl ; ! I
+kimautolu: CardPrnInfl ; ! I
+kita: CardPrnInfl ; ! we
+kitaua: CardPrnInfl ; ! us
+kitautolu: CardPrnInfl ; ! one
+koe: CardPrnInfl ; ! we
+kimoua: CardPrnInfl ; ! us
+kimoutolu: CardPrnInfl ; ! you
+ia: CardPrnInfl ; ! you both
+kinaua: CardPrnInfl ; ! you all (pl)
+kinauatolu: CardPrnInfl ; ! he/she
+kinautolu: CardPrnInfl ; ! I
+
+LEXICON PossPrnRoot
+
+siʻaku:siʻaku PossPrnIrr ; ! my cherished
+haku:haku PossPrnIrr ; ! my cherished
+haku: PossPrnInfl ; ! my
+hama: PossPrnInfl ; ! my (dual)
+siʻama: PossPrnInfl ; ! my cherished (dual)
+hamau: PossPrnInfl ; ! my plural
+siʻamau: PossPrnInfl ; ! my plural
+
+hao: PossPrnInfl ; ! your
+siʻao: PossPrnInfl ; ! your cherished
+hamo: PossPrnInfl ; ! your (two)
+siʻamo: PossPrnInfl ; ! your cherished (two)
+hamou: PossPrnInfl ; ! your plural
+siʻamou: PossPrnInfl ; ! your plural
+
+hano: PossPrnInfl ; ! their
+siʻano: PossPrnInfl ; ! their cherished
+hana: PossPrnInfl ; ! their (two)
+siʻana: PossPrnInfl ; ! their cherished (two)
+hanau: PossPrnInfl ; ! their (pl)
+siʻanau: PossPrnInfl ; ! their cherished (two)
+
+hato: PossPrnInfl ; !
+siʻato: PossPrnInfl ; !
+hata: PossPrnInfl ; !
+siʻata: PossPrnInfl ; !
+hatau: PossPrnInfl ; !
+siʻatau: PossPrnInfl ;
+hoku: PossPrnInfl ; !
+siʻoku: PossPrnInfl ; !
+homa: PossPrnInfl ; !
+siʻoma: PossPrnInfl ; !
+homau: PossPrnInfl ; !
+siʻomau: PossPrnInfl ; !
+hoto: PossPrnInfl ; !
+siʻoto: PossPrnInfl ; !
+hota: PossPrnInfl ; !
+siʻota: PossPrnInfl ; !
+hotau: PossPrnInfl ; !
+siʻotau: PossPrnInfl ; !
+ho:ho PossPrnInfl ; !
+siʻo: PossPrnInfl ; !
+homo: PossPrnInfl ; !
+siʻomo: PossPrnInfl ; !
+homou: PossPrnInfl ; !
+siʻomou: PossPrnInfl ; !
+hono: PossPrnInfl ; !
+hona: PossPrnInfl ; !
+siʻona: PossPrnInfl ; !
+honau: PossPrnInfl ; !
+siʻonau: PossPrnInfl ; !
+hoʻoku: PossPrnInfl ; !
+hoʻomaua: PossPrnInfl ; !
+hoʻomautolu: PossPrnInfl ; !
+hoʻota: PossPrnInfl ; !
+hoʻotaua: PossPrnInfl ; !
+hoʻotautolu: PossPrnInfl ; !
+hoʻona: PossPrnInfl ; !
+hoʻonauau: PossPrnInfl ; !
+hoʻonautolu: PossPrnInfl ; !
+hoʻou: PossPrnInfl ; !
+hoʻomoua: PossPrnInfl ; !
+hoʻomoutolu: PossPrnInfl ; !
+
+
+LEXICON PluralClassifiers
+
+ngaahi:ngaahi PluralMarkersInfl ; !
+kau:kau PluralMarkersInfl ; !
+ʻu:ʻu PluralMarkersInfl ; !
+fanga:fanga PluralMarkersInfl ; !
+ongo:ongo DualMarkersInfl ; !
+
+
+
+
+! Resources:
+! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+! http://hfst.sourceforge.net/
+! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+! http://wiki.apertium.org/wiki/Hfst

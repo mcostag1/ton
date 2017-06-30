@@ -1,0 +1,580 @@
+! Morphological Transducer for Tongan
+
+Multichar_Symbols
+
+! Part of speech categories
+%<n%>   ! Noun
+%<v%>   ! Verb
+%<adj%> ! Adjective
+%<adv%> ! Adverb
+%<prn%> ! Pronoun
+
+! Adjective Morphology
+%<prenom%> ! Prenomial Adjective
+%<postnom%> ! Postnomial Adjective
+%<cl%>   ! Classifier
+%<pr%>   ! Preposition
+%<neg%>   ! Negation
+%<vaux%>   ! Aux verb
+%<trans%>  ! Transitive
+%<intrans%>  ! Intransitive
+
+! Determiner Morphology
+%<def%> ! Definite
+%<ind%> ! Indefinite
+%<sdef%> ! Semi-definite
+
+! Number morphology
+%<pl%>  ! Plural
+%<sg%>  ! Singular
+%<du%>  ! Dual
+
+%<det%>  ! Determiner
+! Person Morphology
+%<p1%>  ! 1st Person
+%<p2%>  ! 2nd Person
+%<p3%>  ! 3rd Person
+
+! Possession Morphology
+%<px1sg%> ! 1st Person singular possesive
+%<px2sg%> ! 2nd Person singular possesive
+%<px3sg%> ! 3rd Person singular possesive
+%<px1pl%> ! 1st Person plural possesive
+%<px2pl%> ! 2nd Person plural possesive
+%<px3pl%> ! 3rd Person plural possesive
+
+%<emphatic%> ! Emotional Possesion
+%<emotional%> ! Emotional Possesion
+%<ordinary%> ! Ordinary Possesion
+
+! Verb Tenses
+%<past%> ! Past
+%<pres%> ! Present
+%<fti%>  ! Future Indicative
+%<perf%> ! Perfect
+%<imp%>  ! Imperative
+%<aux%>  ! Auxiliry verb
+
+
+! Morphosyntactic Alignment
+%<erg%> ! Ergative
+%<abs%> ! Absolutive
+
+! Other symbols
+%>      ! Morpheme boundary
+%{'%}   ! Glottal stop consonant
+%<emph%> ! emphasizing
+%<fredu%> ! Full reduplication
+%<predu%> ! Partial reduplication
+%<az%> ! Adjectivizer
+%<excl%> ! Exclusive
+%<incl%> ! Inclusive
+%<ind%> ! Inclusive
+%<prepd%> ! Preposed
+%<postd%> ! Postposed
+%<sent%> ! Sentence
+%<poss%> ! Possesive
+
+! Other symbols
+%>            ! Morpheme boundary
+%,            !
+%.            !
+%.%.          !
+%.%.%.        !
+%             ! Space
+%-            !
+%%            !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                       M O R P H O T A C T I C S                         !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON Root
+NounRoot ;
+AdjRoot ;
+VerbRoot ;
+CardPrnRoot ;
+PossPrnRoot ;
+PluralClassifiers ;
+Punctuation ;
+AdverbRoot ;
+PrepRoot ;
+MorphoAlignment ; 
+
+LEXICON Ergative
+%<erg%>: # ; ! Ergative
+
+LEXICON Absolutive
+%<abs%>: # ; ! Absolutive
+
+LEXICON RegNounInfl
+
+%<n%>: # ;
+%<n%>%<sg%>: # ;
+%<n%>%<du%>: # ;
+%<n%>%<pl%>: # ;
+
+LEXICON AdvInfl
+%<adv%>: # ;
+
+
+LEXICON AdjInfl
+%<adj%>%: # ;
+
+LEXICON PostAdj
+%<adj%>%<postnom%>: # ; 
+
+LEXICON PreAdj
+%<adj%>%<prenom%>: # ; ! Prenomial adjectives: pl cl, poss prn, other adj. 
+
+LEXICON Neg
+%<neg%>: # ;
+
+LEXICON AdjEmph
+
+%<adj%>%<emph%>: # ;
+
+LEXICON VerbInfl
+
+%<v%>%<trans%>: # ;
+%<v%>%<intrans%>: # ;
+
+LEXICON CardPrnRoot
+
+ou%<prn%>%<prepd%>%<p1%>%<pres%>%<excl%>%<sg%>:ou # ;
+u%<prn%>%<prepd%>%<p1%>%<past%>%<excl%>%<du%>:u # ;
+ku%<prn%>%<prepd%>%<p1%>%<fti%>%<excl%>%<pl%>: ku # ;
+ma%<prn%>%<prepd%>%<p1%>%<excl%>%<du%>: ma # ;
+mau%<prn%>%<prepd%>%<p1%>%<excl%>%<pl%>: mau # ;
+te%<prn%>%<prepd%>%<p1%>%<incl%>%<sg%>: te # ;
+ta%<prn%>%<prepd%>%<p1%>%<incl%>%<du%>: ta # ;
+tau%<prn%>%<prepd%>%<p1%>%<incl%>%<pl%>: tau # ;
+ke%<prn%>%<prepd%>%<p2%>%<sg%>: ke # ;
+mo%<prn%>%<prepd%>%<p2%>%<du%>: mo # ;
+mou%<prn%>%<prepd%>%<p2%>%<pl%>: mou # ;
+ne%<prn%>%<prepd%>%<p3%>%<sg%>: ne # ;
+na%<prn%>%<prepd%>%<p3%>%<du%>: na # ;
+nau%<prn%>%<prepd%>%<p3%>%<pl%>: nau # ;
+
+au%<prn%>%<postd%>%<pl%>%<excl%>%<sg%>: au # ;
+kimaua%<prn%>%<postd%>%<p1%>%<excl%>%<du%>: kimaua # ;
+kimautolu%<prn%>%<postd%>%<p1%>%<excl%>%<pl%>: kimautolu # ;
+kita%<prn%>%<postd%>%<p1%>%<incl%>%<sg%>: kita # ;
+kitaua%<prn%>%<postd%>%<p1%>%<incl%>%<du%>: kitaua # ;
+kitautolu%<prn%>%<postd%>%<p1%>%<incl%>%<pl%>: kitautolu # ;
+koe%<prn%>%<postd%>%<p2%>%<sg%>: koe # ;
+kimoua%<prn%>%<postd%>%<p2%>%<du%>: kimoua # ;
+kimoutolu%<prn%>%<postd%>%<p2%>%<pl%>: kimoutolu # ;
+ia%<prn%>%<postd%>%<p3%>%<sg%>: ia # ;
+kinaua%<prn%>%<postd%>%<p3%>%<du%>: kinaua # ;
+kinautolu%<prn%>%<postd%>%<p3%>%<pl%>: kinautolu # ;
+
+LEXICON OtherPrn
+%<prn%>: hai # ;
+
+LEXICON PrepInfl
+
+%<pr%>: # ;
+
+LEXICON Det
+
+%<det%>: # ;
+
+
+LEXICON PossPrnRoot
+
+! Indefinite possessive pronouns
+
+haku%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<sg%>%<ordinary%>: haku # ;
+siʻaku%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<sg%>%<emotional%>: siʻaku # ;
+hama%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<du%>%<ordinary%>: hama # ;
+siʻama%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<du%>%<emotional%>: siʻama # ;
+hamau%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<pl%>%<ordinary%>: hamau # ;
+siʻamau%<prn%>%<poss%>%<ind%>%<p1%>%<excl%>%<pl%>%<emotional%>: siʻamau # ;
+
+hato%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<sg%>%<ordinary%>: hato # ;
+siʻato%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<sg%>%<emotional%>: siʻato # ;
+hata%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<du%>%<ordinary%>: hata # ;
+siʻata%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<du%>%<emotional%>: siʻata # ;
+hatau%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<pl%>%<ordinary%>: hatau # ;
+siʻatau%<prn%>%<poss%>%<ind%>%<p1%>%<incl%>%<pl%>%<emotional%>: siʻatau # ;
+
+hao%<prn%>%<poss%>%<ind%>%<p2%>%<sg%>%<ordinary%>: hao # ;
+siʻao%<prn%>%<poss%>%<ind%>%<p2%>%<sg%>%<emotional%>: siʻao # ;
+hamo%<prn%>%<poss%>%<ind%>%<p2%>%<du%>%<ordinary%>: hamo # ;
+siʻamo%<prn%>%<poss%>%<ind%>%<p2%>%<du%>%<emotional%>: siʻamo # ;
+hamou%<prn%>%<poss%>%<ind%>%<p2%>%<pl%>%<ordinary%>: hamou # ;
+siʻamou%<prn%>%<poss%>%<ind%>%<p2%>%<pl%>%<emotional%>: siʻamou # ;
+
+
+hano%<prn%>%<poss%>%<ind%>%<p3%>%<sg%>%<ordinary%>: hano # ;
+siʻano%<prn%>%<poss%>%<ind%>%<p3%>%<sg%>%<emotional%>: siʻano # ;
+hana%<prn%>%<poss%>%<ind%>%<p3%>%<du%>%<ordinary%>: hana # ;
+siʻana%<prn%>%<poss%>%<ind%>%<p3%>%<du%>%<emotional%>: siʻana # ;
+hanau%<prn%>%<poss%>%<ind%>%<p3%>%<pl%>%<ordinary%>: hanau # ;
+siʻanau%<prn%>%<poss%>%<ind%>%<p3%>%<pl%>%<emotional%>: siʻanau # ;
+
+! Definite possessive pronouns
+
+hoku%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<sg%>%<ordinary%>: hoku # ;
+siʻoku%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<sg%>%<emotional%>: siʻoku # ;
+homa%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<du%>%<ordinary%>: homa # ;
+siʻoma%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<du%>%<emotional%>: siʻoma # ;
+homau%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<pl%>%<ordinary%>: homau # ;
+siʻomau%<prn%>%<poss%>%<def%>%<p1%>%<excl%>%<pl%>%<emotional%>: siʻomau # ;
+
+hoto%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<sg%>%<ordinary%>: hoto # ;
+siʻoto%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<sg%>%<emotional%>: siʻoto # ;
+hota%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<du%>%<ordinary%>: hota # ;
+siʻota%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<du%>%<emotional%>: siʻota # ;
+hotau%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<pl%>%<ordinary%>: hotau # ;
+siʻotau%<prn%>%<poss%>%<def%>%<p1%>%<incl%>%<pl%>%<emotional%>: siʻotau # ;
+
+ho%<prn%>%<poss%>%<def%>%<p2%>%<sg%>%<ordinary%>: ho # ;
+siʻo%<prn%>%<poss%>%<def%>%<p2%>%<sg%>%<emotional%>: siʻo # ;
+homo%<prn%>%<poss%>%<def%>%<p2%>%<du%>%<ordinary%>: homo # ;
+homou%<prn%>%<poss%>%<def%>%<p2%>%<du%>%<emotional%>: siʻomo # ;
+homou%<prn%>%<poss%>%<def%>%<p2%>%<pl%>%<ordinary%>: homou # ;
+siʻomou%<prn%>%<poss%>%<def%>%<p2%>%<pl%>%<emotional%>: siʻomou # ;
+
+hono%<prn%>%<poss%>%<def%>%<p3%>%<sg%>%<ordinary%>: hono # ;
+siʻano%<prn%>%<poss%>%<def%>%<p3%>%<sg%>%<emotional%>: siʻano # ;
+hona%<prn%>%<poss%>%<def%>%<p3%>%<du%>%<ordinary%>: hona # ;
+siʻona%<prn%>%<poss%>%<def%>%<p3%>%<du%>%<emotional%>: siʻona # ;
+honau%<prn%>%<poss%>%<def%>%<p3%>%<pl%>%<ordinary%>: honau # ;
+siʻonau%<prn%>%<poss%>%<def%>%<p3%>%<pl%>%<emotional%>: siʻonau # ;
+
+hoʻoku%<prn%>%<poss%>%<p1%>%<excl%>%<sg%>%<emphatic%>: hoʻoku # ;
+hoʻomaua%<prn%>%<poss%>%<p1%>%<excl%>%<du%>%<emphatic%>: hoʻomaua # ;
+hoʻomautolu%<prn%>%<poss%>%<p1%>%<excl%>%<pl%>%<emphatic%>: hoʻomautolu # ;
+
+hoʻota%<prn%>%<poss%>%<p1%>%<incl%>%<sg%>%<emphatic%>: hoʻota # ;
+hoʻotaua%<prn%>%<poss%>%<p1%>%<incl%>%<du%>%<emphatic%>: hoʻotaua # ;
+hoʻotautolu%<prn%>%<poss%>%<p1%>%<incl%>%<pl%>%<emphatic%>: hoʻotautolu # ;
+
+hoʻona%<prn%>%<poss%>%<p2%>%<sg%>%<emphatic%>: hoʻona # ;
+hoʻonauau%<prn%>%<poss%>%<p2%>%<du%>%<emphatic%>: hoʻonauau # ;
+hoʻonautolu%<prn%>%<poss%>%<p2%>%<pl%>%<emphatic%>: hoʻonautolu # ;
+
+hoʻou%<prn%>%<poss%>%<p3%>%<sg%>%<emphatic%>: hoʻou # ;
+hoʻomoua%<prn%>%<poss%>%<p3%>%<du%>%<emphatic%>: hoʻomoua # ;
+hoʻomoutolu%<prn%>%<poss%>%<p3%>%<pl%>%<emphatic%>: hoʻomoutolu # ;
+
+
+LEXICON PluralMarkersInfl
+
+%<cl%>%<pl%>: # ;
+
+LEXICON DualMarkersInfl
+%<cl%>%<du%>: # ;
+
+
+LEXICON AuxVerbPast
+%<vaux%>%<past%>: # ;
+
+LEXICON AuxVerbPres
+%<vaux%>%<pres%>: # ;
+
+LEXICON AuxVerbFut
+%<vaux%>%<fti%>: # ;
+
+LEXICON AuxVerbPerf
+%<vaux%>%<perf%>: # ;
+
+LEXICON VerbRegImp
+%<v%>%<imp%>: # ;
+
+LEXICON RegArticle
+
+%<def%>: # ;
+ha%<ind%>: ha # ;
+
+LEXICON SDefArticle
+%<sdef%>: # ;
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                          L E X I C O N                                  !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+LEXICON Punctuation
+
+.%<sent%>:. # ;
+..%<sent%>:.. # ;
+...%<sent%>:... # ;
+%;%<sent%>:%; # ;
+%:%<sent%>:%: # ;
+%!%<sent%>:%! # ;
+%-%<guio%>:%- # ;
+%—%<guio%>:%— # ;
+,%<cm%>:, # ;
+%?%<sent%>:%? # ;
+%'%<apos%>:%' # ;
+%"%<sent%>:%" # ;
+%«%<lquot%>:%« # ;
+%»%<rquot%>:%» # ;
+%”%<rquot%>:%” # ;
+%“%<lquot%>:%“ # ;
+%(%<lpar%>:%( # ;
+%]%<rpar%>:%] # ;
+%[%<lpar%>:%[ # ;
+%)%<rpar%>:%) # ;
+\%<sent%>:\ # ;
+/%<sent%>:/ # ;
+
+LEXICON MorphoAlignment
+ʻe:ʻe Ergative ; ! Ergative classifier
+ʻa:ʻa Absolutive ; ! Absolutive classifier
+
+LEXICON AdverbRoot
+pē:pē AdvInfl ; ! only
+totonu:totonu AdvInfl ; ! straight
+fēfē:fēfē AdvInfl; ! how
+holo:holo AdvInfl; ! here and there 
+
+LEXICON PrepRoot
+
+hake:hake PrepInfl ; ! upwards
+ʻi:ʻi PrepInfl ; ! at
+ko:ko PrepInfl ; ! indicating identity
+hake:hake PrepInfl ; ! 
+mo:mo PrepInfl ; ! with
+ki:ki PrepInfl ; ! against
+maʻa:maʻa PrepInfl ; ! for
+ʻi:ʻi PrepInfl ; ! on
+
+LEXICON NounRoot
+sea:sea RegNounInfl ; ! chair
+ʻulutuki:ʻulutuki RegNounInfl ; ! k. fish
+toke:toke RegNounInfl ; ! sea eel
+hapi:hapi RegNounInfl ; ! k. fish
+taʻa:taʻa RegNounInfl ; ! k. fish (red/edible)
+foʻiʻakau:foʻiʻakau RegNounInfl ; ! fame
+ongoongo:ongoongo RegNounInfl ; ! fame
+namu:namu RegNounInfl ; ! mosquito
+mamate:mamate RegNounInfl ; ! paralysis
+efu:efu RegNounInfl ; ! dust
+kaiako:kaiako RegNounInfl ; ! teacher
+fili:fili RegNounInfl ; ! candidate
+fale:fale RegNounInfl ; ! house
+hele:hele RegNounInfl ; ! knife
+faifekau:faifekau RegNounInfl ; ! minister
+tohi:tohi RegNounInfl ; ! book
+maŋa:maŋa RegNounInfl ; ! fork
+puaka:puaka RegNounInfl ; ! pig
+hoosi:hoosi RegNounInfl ; ! horse
+toko:toko RegNounInfl ; ! cow
+tangata:tangata RegNounInfl ; ! man
+vaka:vaka RegNounInfl ; ! boat
+luo:luo RegNounInfl ; ! hole
+kofu:kofu RegNounInfl ; ! garment
+pea:pea RegNounInfl ; ! bear, pear, or and
+ika:ika RegNounInfl ; ! fish
+kuli:kuli RegNounInfl ; ! dog
+ngutu:ngutu RegNounInfl ; ! mouth
+mata:mata RegNounInfl ; ! eye
+tamasiʻi:tamasiʻi RegNounInfl ; ! child
+anga:anga RegNounInfl ; ! shark
+poto:poto RegNounInfl ; ! frog
+anga:anga RegNounInfl ; ! shark
+ʻaho:ʻaho RegNounInfl ; ! day
+moana:moana RegNounInfl ; ! sea/ocean
+vai:vai RegNounInfl ; ! sea/ocean
+kakalu:kakalu RegNounInfl ; ! sea/ocean
+fehuʻi:fehuʻi RegNounInfl ; ! question
+valevale:valevale RegNounInfl ; ! question
+lango:lango RegNounInfl ; ! fly
+ʻakau:ʻakau RegNounInfl ; ! tree
+longolongo:longolongo RegNounInfl ; ! tree-fern
+fefie:fefie RegNounInfl ; ! wood
+mohenga:mohenga RegNounInfl ; ! bed
+vao:vao RegNounInfl ; ! forest
+kangikalū:kangikalū RegNounInfl ; ! kangaroo
+fala:fala RegNounInfl ; ! mat
+laime:laime RegNounInfl ; ! lime
+lemani:lemani RegNounInfl ; ! lemon
+kolo:kolo RegNounInfl ; ! village
+‘āpele:‘āpele RegNounInfl ; ! apple
+fale-lotu:fale-lotu RegNounInfl ; ! church (building)
+Sasi:Sasi RegNounInfl ; ! church (organization)
+lelei:lelei RegNounInfl ; ! good
+faliki:faliki RegNounInfl ; ! floor
+fingota:fingota RegNounInfl ; ! spiral shell (shell fish)
+fingota:fingota RegNounInfl ; ! shell (eaten)
+faka-Suva:faka-Suva RegNounInfl ; ! unmarried woman
+feo:feo	RegNounInfl; !	coral
+kofe:kofe RegNounInfl ; ! bamboo
+paka:paka RegNounInfl ; ! land crab (crab)
+hulufe:hulufe RegNounInfl ; ! fern (no general term in Tongan)
+hakato:hakato RegNounInfl ; ! fern (no general term in Tongan)
+kulutuma:kulutuma RegNounInfl ; ! fern (no general term in Tongan)
+kofe:kofe RegNounInfl ; ! bamboo
+moʻui:moʻui RegNounInfl ; ! life/existence
+kongi:kongi RegNounInfl ; ! gong
+kupenga:kupenga RegNounInfl ; ! net
+kato:kato RegNounInfl ; ! basket
+pusi:pusi RegNounInfl ; ! cat
+motu:motu RegNounInfl ; ! island
+fakamotu:fakamotu RegNounInfl ; ! island life
+hiva:hiva RegNounInfl ; ! song
+foha:foha RegNounInfl ; ! manʻs son
+tama:tama RegNounInfl ; ! womanʻs son
+ʻalo:ʻalo RegNounInfl ; ! kingʻs son
+lanu-moana:lanu-moana RegNounInfl ; ! blue
+kalou:kalou RegNounInfl ; ! crow
+ongo:ongo RegNounInfl ; ! sound
+tao:tao RegNounInfl ; ! spear
+ava:ava RegNounInfl ; ! gap;space
+tamai:tamai RegNounInfl ; ! father
+talanoa:talanoa RegNounInfl ; ! story
+kumā:kumā RegNounInfl ; ! small mouse found in houses
+louhiʻi%<b/%>vaʻe:louhiʻi%<b/%>vaʻe RegNounInfl ; ! toe
+nheʻesi-vaʻe:nheʻesi-vaʻe RegNounInfl ; ! toe nail
+mounu:mounu RegNounInfl ; ! bait
+kuava:kuava RegNounInfl ; ! guava
+kopoa:kopoa RegNounInfl ; ! catfish
+pepe:pepe RegNounInfl ; ! butterfly
+teleʻa:teleʻa RegNounInfl ; ! valley
+tokalelei:tokalelei RegNounInfl ; ! plain
+mokopuna:mokopuna RegNounInfl ; ! grandchild
+niu:niu RegNounInfl ; ! coconut
+mongomonga:mongomonga RegNounInfl ; ! cockroach
+kongā:kongā RegNounInfl ; ! yell
+enga:enga RegNounInfl ; ! turmeric
+loto-mamahi:loto-mamahi RegNounInfl ; ! sorrow/grief
+afi:afi RegNounInfl ; ! fire
+kupuʻiʻakau:kupuʻiʻakau RegNounInfl ; ! log;tree stump
+teka:teka RegNounInfl ; ! sandal;lit. leg sole sheath
+fatafata:fatafata RegNounInfl ; ! chest (not sure if trunk or body??)
+tuʻunga:tuʻunga RegNounInfl ; ! ladder
+hala:hala RegNounInfl ; ! stair
+nui-tuitui:nui-tuitui RegNounInfl ; ! needle
+Tohi%<b/%>Tapu:Tohi%<b/%>Tapu RegNounInfl ; ! Bible
+
+LEXICON AdjRoot
+ʻanai:ʻanai PostAdj ; ! shortly
+ʻapo:ʻapo PostAdj ; ! tonight
+ʻapongipongi:ʻapongipongi PostAdj ; ! tomorrow
+momoko:momoko PostAdj ; ! cold
+māfana:māfana PostAdj ; ! warm
+kotoa:kotoa PostAdj ; ! all
+kehe:kehe PostAdj ; ! different
+fiefia:fiefia PostAdj ; ! happy
+lata:lata PostAdj ; ! happy
+puke:puke PostAdj ; ! sick
+fiefia:fiefia PostAdj ; ! happy
+ʻuliʻuli:ʻuliʻuli PostAdj ; ! black
+fiefia:fiefia PostAdj ; ! happy
+ilifia:ilifia PostAdj ; ! afraid
+vela:vela PostAdj ; ! hot/warm
+ʻaupito:ʻaupito PostAdj ; ! very
+vaivai:vaivai PostAdj ; ! old/weak
+fuʻu:fuʻu PreAdj ; ! big
+sai:sai PostAdj ; ! good/fine
+ʻikai:ʻikai Neg ; ! not(neg)
+ʻa:ʻa PostAdj ; ! awake
+longo:longo PostAdj ; ! good
+fake:fake PostAdj ; ! silent
+fake’ofo’ofa:fake’ofo’ofa PostAdj ; ! beautiful
+molū:molū PostAdj ; ! soft
+vela:vela PostAdj ; ! hot
+havehave:havehave PostAdj ; ! smashed/shattered
+mahili:mahili PostAdj ; ! overlap with; be underneath
+totonu:totonu PostAdj ; ! straight;good
+toʻomataʻu:toʻomataʻu PostAdj ; ! rightside
+foʻou:foʻou PostAdj ; ! fresh/young/new
+maveu:maveu PostAdj ; ! confused
+kiʻi:kiʻi PreAdj ; ! small
+mata-tangi:mata-tangi PostAdj ; ! tearful
+ni:ni Det ; ! 
+kehe:kehekehe AdjEmph ; ! very different
+māfana:mamāfana AdjEmph ; ! luke warm
+momoko:mokomoko AdjEmph ; ! cool
+
+he:he SDefArticle ; ! a
+e:e SDefArticle ; ! a
+
+he:he RegArticle ; ! a
+e:e RegArticle ; ! a
+ha: RegArticle ; ! a
+
+
+LEXICON VerbRoot
+
+holo:holo VerbInfl ; ! to pass along in a continuous stream
+toke:toke VerbInfl ; ! to cut up
+kai:kai VerbInfl ; ! to eat
+inu:inu VerbInfl ; ! to drink
+ako:ako VerbInfl ; ! to study
+ʻalu:ʻalu VerbInfl ; ! to get/go
+mohe:mohe VerbInfl ; ! to sleep
+aʻhu:aʻhu VerbInfl ; ! to come
+moloki:moloki VerbInfl ; ! to step on
+kakau:kakau VerbInfl ; ! to swim
+moloki:moloki VerbInfl ; ! to step on
+tamateʻi:tamateʻi VerbInfl ; ! to kill
+ōmai:ōmai VerbInfl ; ! to come
+po:po VerbInfl ; ! to catch
+tutu:tutu VerbInfl ; ! to burn
+ʻuha:ʻuha VerbInfl ; ! to rain
+tangi:tangi VerbInfl ; ! to eat
+angi:angi VerbInfl ; ! to blow
+ngaolo:ngaolo VerbInfl ; ! crawl
+ʻalu:ʻalu VerbInfl ; ! walk slowly
+tali:tali VerbInfl ; ! wait
+tuitui:tuitui VerbInfl ; ! to sew
+faka’ānaua:faka’ānaua VerbInfl ; ! to dream (to long for)
+papaka:papaka VerbInfl ; ! shy
+mā:mā VerbInfl ; ! ashamed
+tau:tau VerbInfl ; ! to fight
+kata:kata VerbInfl ; ! to laugh
+hela:hela VerbInfl ; ! tired/exhausted
+nofo:nofo VerbInfl ; ! to sit (no location specified)
+nofo:nofo VerbInfl ; ! to sit (location specified)
+hulohula:hulohula VerbInfl ; ! to dance
+ongo:ongo VerbInfl ; ! make a sound
+fehuʻi:fehuʻi VerbInfl ; ! ask
+fufuuʻi:fufuuʻi VerbInfl ; ! conceal/hide
+lau:lau VerbInfl ; ! to read
+fakahohaʻasi:fakahohaʻasi VerbInfl ; ! to bother
+kekekeke:kekekeke VerbInfl ; ! scream;shout
+vaʻinga:vaʻinga VerbInfl ; ! to play
+tuʻasina:tuʻasina VerbInfl ; ! uncle (maternal)
+tamai:tamai VerbInfl ; ! uncle (paternal)
+tau:tau VerbInfl ; ! to fish (wad - at night w/ lamp; ton - always followed by a fish)
+
+ʻe:ʻe AuxVerbFut ; ! future tense marker
+te:te AuxVerbFut ; ! future tense marker
+naʻa:naʻa AuxVerbPast ; ! past tense marker
+naʻe:naʻe AuxVerbPast ; ! past tense marker
+ʻoku:ʻoku AuxVerbPres ; ! present tense marker
+kuo:kuo AuxVerbPerf ; ! perfect tense marker
+
+mohe:mohe VerbRegImp ; ! sleep!
+aʻhu:aʻhu VerbRegImp ; !
+ʻalu:ʻalu VerbRegImp ; !
+kai:kai VerbRegImp ; ! eat!
+
+
+LEXICON ReflPrn 
+
+di%:di% Refl ; ! Reflexive pronoun prefix
+
+
+LEXICON PluralClassifiers
+
+ngaahi:ngaahi PluralMarkersInfl ; !
+kau:kau PluralMarkersInfl ; !
+ʻu:ʻu PluralMarkersInfl ; !
+fanga:fanga PluralMarkersInfl ; !
+ongo:ongo DualMarkersInfl ; !
+
+
+
+
+! Resources:
+! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+! http://hfst.sourceforge.net/
+! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+! http://wiki.apertium.org/wiki/Hfst

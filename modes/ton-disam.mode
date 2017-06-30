@@ -1,0 +1,4 @@
+
+      
+    lt-proc -w '/home/swatstudent/Source/ling073-ton/ton.automorf.bin' | cg-conv -a| vislcg3 --trace --grammar '/home/swatstudent/Source/ling073-ton/ton.rlx.bin' 
+  

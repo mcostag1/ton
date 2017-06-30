@@ -1,0 +1,4 @@
+
+      
+    hfst-strings2fst -S| hfst-compose-intersect '/home/swatstudent/Source/ling073-ton/.deps/ton.twol.hfst' | hfst-fst2strings
+  

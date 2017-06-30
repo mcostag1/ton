@@ -1,0 +1,56 @@
+# Firstly, we need to define what tags should be considered sentence delimiters. For this example, only full stop is set as delimiter.
+DELIMITERS = "<.>" ;
+
+# We can define sets for common tag clusters
+LIST Case = (n s) (n p) ; # A set that matches either a Noun Singular or a Noun Plural
+LIST Vtm = (vaux pres) (vaux past) (vaux fti) (prn) ; # A set that matches any verb tense marker
+
+SET PL = (n sg) OR (n du) ; # A set that matches either noun sg or noun dual
+SET DU = (n sg) OR (n pl) ; # A set that matches either noun sg or noun plural
+SET SG = (n du) OR (n pl) ; # A set that matches either noun dual or noun plural
+SET VM = (vaux pres) OR (vaux past) OR (vaux fti) OR (prn) ; # A set that matches any verb tense marker
+
+SECTION
+
+#If there is a plural noun marker before a noun, remove the (n sg) and (n du) tags.
+REMOVE $$PL IF (-1 (cl pl)) ;
+
+REMOVE $$DU IF (-1 (cl du)) ;
+
+REMOVE $$SG IF (not -1 (cl pl) or (cl du)) ;
+
+# Remove noun classiciation IF a tense marker or cardinal pronoun is immediately before the word. 
+# HOW DO I GET IT TO BE IMMEDIATELY BEFORE? 
+REMOVE (n) IF (-1 (vaux pres) or (vaux past) or (vaux fti) or (prn)) ; 
+
+# Remove all classiciations except verb translations IF a tense marker or cardinal pronoun is immediately before the word. 
+REMOVE (adv) or (n sg) or (n pl) or (n du) or (n) or (cl du) IF (-1 (vaux pres) or (vaux past) or (vaux fti) or (prn)) ; 
+
+# Remove v intransitive translation if to the right if there is an ergative marker "ʻe" to the right of the verb.
+REMOVE (v intrans) or (v imp) IF (1 (erg)) ; 
+
+# Remove ergative marking if it is IMMEDIATELY followed by a verb or cardinal pronoun
+REMOVE (erg) IF (1 (v) or (v imp) or (v trans) or (v intrans) or (prn) ); 
+
+# Remove future tense marking if it is NOT IMMEDIATELY followed by a verb or cardinal pronoun
+REMOVE (vaux fti) IF (not 1 (v) or (v imp) or (v trans) or (v intrans) or (prn) ); 
+
+
+
+# If there is a singular noun to the right, I cannot be a verb or noun.
+REMOVE (n) OR (v) IF (1 (n s)) ;
+
+# If there is a conjunction followed by a certain cohort of the same CASE as me, choose me.
+SELECT $$Case IF (1 (cnjcoo) LINK 1C $$Case) ;
+
+
+
+
+
+# Resources:
+# http://visl.sdu.dk/cg3.html
+# http://groups.google.com/group/constraint-grammar
+# http://kevindonnelly.org.uk/2010/05/constraint-grammar-tutorial/
+# http://wiki.apertium.org/wiki/Constraint_Grammar
+# http://wiki.apertium.org/wiki/Apertium_and_Constraint_Grammar
+

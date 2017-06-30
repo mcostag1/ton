@@ -1,0 +1,30 @@
+Config:
+  hfst:
+    App: hfst-lookup
+    Gen: ../ton.autogen.hfst
+    Morph: ../ton.automorf.hfst
+Tests:
+  Unknown words:
+    e<adj><def>: e
+    he<adj><sdef>: he
+    ʻae<unk>: ʻae
+    naʻe<unk>: naʻe
+    pea<n><sg>: pea
+    ʻi<unk>: ʻi
+    Pea<unk>: Pea
+    ʻOtua<unk>: ʻOtua
+    ko<unk>: ko
+    ʻe<unk>: ʻe
+    ki<unk>: ki
+    hono<unk>: hono
+    ʻoku<unk>: ʻoku
+    ngaahi<cl><pl>: ngaahi
+    ʻoe<unk>: ʻoe
+    ki<unk>: ki
+    ʻo<unk>: ʻo
+    kotoa<unk>: kotoa
+    kuo<unk>: kuo
+    meʻa<unk>: meʻa
+    ai<unk>: ai
+
+
